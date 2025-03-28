@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "873f",
+      "firstName": "Priyansh",
+      "lastName": "Patel",
+      "email": "priyansh@gmail.com",
+      "phone": 8980188130,
+      "dob": "2003-11-20",
+      "gender": "Male",
+      "address": "4324323432424343",
+      "password": "Priyansh@03",
+      "confirmPassword": "Priyansh@03"
+    }
+  ]
+}
