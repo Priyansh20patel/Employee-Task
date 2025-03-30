@@ -11,6 +11,18 @@
       "address": "4324323432424343",
       "password": "Priyansh@03",
       "confirmPassword": "Priyansh@03"
+    },
+    {
+      "id": "fa83",
+      "firstName": "Umita",
+      "lastName": "Dhudiya",
+      "email": "umit@gmail.com",
+      "phone": 9876543210,
+      "dob": "2001-11-11",
+      "gender": "Male",
+      "address": "4324323432424343",
+      "password": "Dhudiya@01",
+      "confirmPassword": "Dhudiya@01"
     }
   ]
 }

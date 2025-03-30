@@ -5,6 +5,8 @@ import { passwordMatchValidator } from 'src/app/shared/models/passwordMatchValid
 import { ageValidator } from 'src/app/shared/models/age.validator';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { User } from 'src/app/shared/models/user';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,11 +15,14 @@ import { User } from 'src/app/shared/models/user';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
-  successMessage ='';
-  errorMessage = '';
   genderList: string[] = ['Male', 'Female', 'Other'];
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {
     this.registerForm = this.fb.group(
       {
         firstName: ['', [Validators.required, Validators.minLength(5)]],
@@ -47,16 +52,16 @@ export class RegisterComponent {
       const newUser: User = this.registerForm.value;
 
       this.authService.register(newUser).subscribe({
-            next: (res) => {
-                this.successMessage = "Registration Successful !";
-                this.errorMessage = '';
-                this.registerForm.reset();
-            },
+        next: (res) => {
+          this.toastr.success('Registration successfull', 'Success');
+          this.registerForm.reset();
+          this.router.navigate(['./login']);
+        },
 
-            error: (err) => {
-                this.errorMessage = "failed to register. Please try again.";
-            }
-      })
+        error: (err) => {
+          this.toastr.error('failed to register. Please try again');
+        },
+      });
     }
   }
 }
