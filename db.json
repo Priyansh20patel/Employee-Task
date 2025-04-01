@@ -1,28 +1,64 @@
 {
   "users": [
     {
-      "id": "873f",
+      "id": "d99016d2-afb9-d1da-53ee-19c75f2bc998",
       "firstName": "Priyansh",
       "lastName": "Patel",
       "email": "priyansh@gmail.com",
-      "phone": 8980188130,
+      "phone": "1234567890",
       "dob": "2003-11-20",
       "gender": "Male",
-      "address": "4324323432424343",
+      "address": "uibpgwhriuph",
       "password": "Priyansh@03",
       "confirmPassword": "Priyansh@03"
     },
     {
-      "id": "fa83",
-      "firstName": "Umita",
-      "lastName": "Dhudiya",
-      "email": "umit@gmail.com",
-      "phone": 9876543210,
-      "dob": "2001-11-11",
+      "id": "5c19dea7-8566-2540-6df3-1e3de8c844cc",
+      "firstName": "Shubham",
+      "lastName": "Prajapati",
+      "email": "sapshub@fsd.com",
+      "phone": "1234567890",
+      "dob": "2003-07-17",
       "gender": "Male",
       "address": "4324323432424343",
+      "password": "Shubham@03",
+      "confirmPassword": "Shubham@03"
+    },
+    {
+      "id": "4c4e037a-66b6-e228-8fb0-0f2b69d7edd8",
+      "firstName": "Umita",
+      "lastName": "Dhudiya",
+      "email": "umita@gmail.com",
+      "phone": "0123456789",
+      "dob": "2001-04-24",
+      "gender": "Female",
+      "address": "dfgvbfbfbbt",
       "password": "Dhudiya@01",
       "confirmPassword": "Dhudiya@01"
+    },
+    {
+      "id": "951676f3-186a-b855-5734-38d40fb19019",
+      "firstName": "Deven",
+      "lastName": "Pansuriya",
+      "email": "Deven@gmail.com",
+      "phone": "5657891233",
+      "dob": "2004-04-14",
+      "gender": "Male",
+      "address": "pqwoiugfybg piug hfe",
+      "password": "Deven@03",
+      "confirmPassword": "Deven@03"
+    },
+    {
+      "id": "c7d8fa0b-f0a3-1430-15bd-cffffa69b322",
+      "firstName": "Suchi",
+      "lastName": "Patel",
+      "email": "Suchi@gmail.com",
+      "phone": "9874563210",
+      "dob": "2004-06-15",
+      "gender": "Female",
+      "address": "uibpgwhriuph",
+      "password": "Suchi@04",
+      "confirmPassword": "Suchi@04"
     }
   ]
 }

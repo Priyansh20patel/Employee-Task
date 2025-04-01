@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { StrongPasswordRegx } from 'src/app/shared/models/passwordpattern';
-import { passwordMatchValidator } from 'src/app/shared/models/passwordMatchValidator';
+import { PasswordRegx } from 'src/app/shared/models/passwordpattern';
+import { matchPassword } from 'src/app/shared/models/passwordMatchValidator';
 import { ageValidator } from 'src/app/shared/models/age.validator';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { User } from 'src/app/shared/models/user';
+import { UserDto } from 'src/app/shared/models/userDto';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
@@ -28,17 +28,17 @@ export class RegisterComponent {
         firstName: ['', [Validators.required, Validators.minLength(5)]],
         lastName: ['', [Validators.required, Validators.minLength(5)]],
         email: ['', [Validators.required, Validators.email]],
-        phone: ['', [Validators.pattern('^(0|[1-9][0-9]*)$')]],
+        phone: [
+          '',
+          [Validators.pattern('^[0-9]{10}$'), Validators.maxLength(10)],
+        ],
         dob: ['', [Validators.required, ageValidator]],
         gender: ['', [Validators.required]],
         address: ['', [Validators.minLength(10)]],
-        password: [
-          '',
-          [Validators.required, Validators.pattern(StrongPasswordRegx)],
-        ],
+        password: ['', [Validators.required, Validators.pattern(PasswordRegx)]],
         confirmPassword: ['', Validators.required],
       },
-      { validators: passwordMatchValidator }
+      { validators: matchPassword }
     );
   }
 
@@ -48,20 +48,33 @@ export class RegisterComponent {
 
   //   Submit
   onSubmit() {
-    if (this.registerForm.valid) {
-      const newUser: User = this.registerForm.value;
+    if (this.registerForm.invalid) {
+      this.toastr.error('Please fill in all required fields correctly.');
+      return;
+    }
 
+ // Check if email is already taken
+    const email = this.registerForm.get('email')?.value;
+
+    this.authService.checkEmail(email).subscribe((exist) => {
+      if (exist) {
+        this.registerForm.get('email')?.setErrors({ emailTaken: true });
+        this.toastr.error('Email is already registered.');
+        return;
+      }
+
+      // If email not taken
+      const newUser: UserDto = this.registerForm    .value;
       this.authService.register(newUser).subscribe({
-        next: (res) => {
-          this.toastr.success('Registration successfull', 'Success');
+        next: () => {
+          this.toastr.success('Registration successful', 'Success');
           this.registerForm.reset();
           this.router.navigate(['./login']);
         },
-
-        error: (err) => {
-          this.toastr.error('failed to register. Please try again');
+        error: () => {
+          this.toastr.error('Failed to register. Please try again.');
         },
       });
-    }
+    });
   }
 }
