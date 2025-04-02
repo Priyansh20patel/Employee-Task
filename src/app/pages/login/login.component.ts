@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
+
 export class LoginComponent {
   email = '';
   password = '';
@@ -26,9 +27,7 @@ export class LoginComponent {
           if (isLoggedIn) {
             this.toastr.success('Login successful!', 'Success');
             this.router.navigate(['./user-list']);
-          } 
-          
-          else {
+          } else {
             this.toastr.error('Invalid email or password', 'Login Failed');
           }
         },

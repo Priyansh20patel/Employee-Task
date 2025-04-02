@@ -12,7 +12,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  // Register
+  // Register   
   register(userData: UserDto): Observable<UserDto> {
     userData.id = Guid.create().toString();
     return this.http.post<UserDto>(this.apiUrl, userData);
@@ -52,21 +52,17 @@ export class AuthService {
 
 
 
-
   // Get User by id
   getUserById(userid: string): Observable<UserDto[]> {
     return this.http.get<UserDto[]>(`${this.apiUrl}/${userid}`);
   }
 
   // Edit User
-  editUser(userid: string, userData: UserDto) : Observable<UserDto>{
-    return this.http.put<UserDto>(`${this.apiUrl}/${userid}`, userData);
+  updateUser(user: UserDto) {
+    return this.http.put<UserDto>(`http://localhost:3000/users/${user.id}`, user);
   }
-
-
-
-
   
+
   // Email taken validation
   checkEmail(email: string): Observable<boolean> {
     return this.http

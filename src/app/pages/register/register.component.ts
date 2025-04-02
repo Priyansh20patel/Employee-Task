@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordRegx } from 'src/app/shared/models/passwordpattern';
 import { matchPassword } from 'src/app/shared/models/passwordMatchValidator';
@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent {
-  registerForm: FormGroup;
+export class RegisterComponent implements OnInit {
+  registerForm!: FormGroup;
   genderList: string[] = ['Male', 'Female', 'Other'];
 
   constructor(
@@ -22,7 +22,13 @@ export class RegisterComponent {
     private authService: AuthService,
     private toastr: ToastrService,
     private router: Router
-  ) {
+  ) {}
+
+  ngOnInit() {
+    this.loadForm();
+  }
+
+  loadForm() {
     this.registerForm = this.fb.group(
       {
         firstName: ['', [Validators.required, Validators.minLength(5)]],
@@ -41,19 +47,23 @@ export class RegisterComponent {
       { validators: matchPassword }
     );
   }
+  
+  get ctrl() {
+    return this.registerForm.controls;
+  }
 
   getpasswordMismatch() {
     return this.registerForm.hasError('passwordMismatch');
   }
 
-  //   Submit
+  // Submit
   onSubmit() {
     if (this.registerForm.invalid) {
-      this.toastr.error('Please fill in all required fields correctly.');
+      this.registerForm.markAllAsTouched();
       return;
     }
 
- // Check if email is already taken
+    // Check if email is already taken
     const email = this.registerForm.get('email')?.value;
 
     this.authService.checkEmail(email).subscribe((exist) => {
@@ -64,7 +74,7 @@ export class RegisterComponent {
       }
 
       // If email not taken
-      const newUser: UserDto = this.registerForm    .value;
+      const newUser: UserDto = this.registerForm.value;
       this.authService.register(newUser).subscribe({
         next: () => {
           this.toastr.success('Registration successful', 'Success');

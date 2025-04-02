@@ -6,7 +6,10 @@ export interface UserDto {
   phone: number;
   password: string;
   gender: string;
+  address: string;
   dob: string;
   username: string;
   userData: string;
+  isEditing: boolean;
+
 }

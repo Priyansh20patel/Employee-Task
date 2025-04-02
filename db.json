@@ -1,11 +1,23 @@
 {
   "users": [
     {
-      "id": "d99016d2-afb9-d1da-53ee-19c75f2bc998",
+      "id": "04783b88-4fd7-3e0b-a20f-1af96415df5d",
+      "firstName": "Shubham",
+      "lastName": "Prajapati",
+      "email": "shubham@gmail.com",
+      "phone": "6928271456",
+      "dob": "2003-07-17",
+      "gender": "Male",
+      "address": "Canadahgjhg",
+      "password": "Shubham@03",
+      "confirmPassword": "Shubham@03"
+    },
+    {
+      "id": "3125b1e9-ab75-3209-c2c1-a17bf1b3c746",
       "firstName": "Priyansh",
       "lastName": "Patel",
       "email": "priyansh@gmail.com",
-      "phone": "1234567890",
+      "phone": "6928271456",
       "dob": "2003-11-20",
       "gender": "Male",
       "address": "uibpgwhriuph",
@@ -13,52 +25,28 @@
       "confirmPassword": "Priyansh@03"
     },
     {
-      "id": "5c19dea7-8566-2540-6df3-1e3de8c844cc",
-      "firstName": "Shubham",
-      "lastName": "Prajapati",
-      "email": "sapshub@fsd.com",
-      "phone": "1234567890",
-      "dob": "2003-07-17",
-      "gender": "Male",
-      "address": "4324323432424343",
-      "password": "Shubham@03",
-      "confirmPassword": "Shubham@03"
-    },
-    {
-      "id": "4c4e037a-66b6-e228-8fb0-0f2b69d7edd8",
-      "firstName": "Umita",
-      "lastName": "Dhudiya",
-      "email": "umita@gmail.com",
-      "phone": "0123456789",
-      "dob": "2001-04-24",
-      "gender": "Female",
-      "address": "dfgvbfbfbbt",
-      "password": "Dhudiya@01",
-      "confirmPassword": "Dhudiya@01"
-    },
-    {
-      "id": "951676f3-186a-b855-5734-38d40fb19019",
+      "id": "50e6dbdc-e06d-7b91-cd3e-a667508cd52b",
       "firstName": "Deven",
       "lastName": "Pansuriya",
       "email": "Deven@gmail.com",
-      "phone": "5657891233",
-      "dob": "2004-04-14",
+      "phone": "1234567890",
+      "dob": "1999-01-31",
       "gender": "Male",
-      "address": "pqwoiugfybg piug hfe",
+      "address": "dfgvbfbfbbt",
       "password": "Deven@03",
       "confirmPassword": "Deven@03"
     },
     {
-      "id": "c7d8fa0b-f0a3-1430-15bd-cffffa69b322",
-      "firstName": "Suchi",
-      "lastName": "Patel",
-      "email": "Suchi@gmail.com",
-      "phone": "9874563210",
-      "dob": "2004-06-15",
+      "id": "19b661ee-9d60-d3ad-122c-ebe941aeb24c",
+      "firstName": "Harshraj",
+      "lastName": "Chauhan",
+      "email": "harshraj@gmail.com",
+      "phone": "5657891233",
+      "dob": "2006-01-12",
       "gender": "Female",
-      "address": "uibpgwhriuph",
-      "password": "Suchi@04",
-      "confirmPassword": "Suchi@04"
+      "address": "Canadahgjhg",
+      "password": "Harshraj@03",
+      "confirmPassword": "Harshraj@03"
     }
   ]
 }

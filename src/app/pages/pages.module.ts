@@ -20,7 +20,8 @@ import { UserListComponent } from './user-list/user-list.component';
     PagesRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+
 
   ]
 })

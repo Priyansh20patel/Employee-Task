@@ -7,13 +7,13 @@
 
                 <!-- FirstName -->
                 <div class="form-group">
-                    <label for="firstName">First Name:</label>
+                        <label for="firstName">First Name:</label>
                     <input type="text" class="form-control" id="firstName" formControlName="firstName"
                         placeholder="e.g. John" [ngClass]="{
                                 'is-invalid': registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched,
                                 'is-valid': registerForm.get('firstName')?.valid && registerForm.get('firstName')?.touched
                               }" required>
-                 <!-- validation -->
+                    <!-- validation -->
                     <div class="invalid-feedback" *ngIf="registerForm.get('firstName')?.hasError('required')">
                         First name is required.
                     </div>
@@ -31,7 +31,7 @@
                       'is-invalid': registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched,
                       'is-valid': registerForm.get('lastName')?.valid && registerForm.get('lastName')?.touched
                     }" required>
-                        <!-- validation -->
+                    <!-- validation -->
                     <div class="invalid-feedback" *ngIf="registerForm.get('lastName')?.hasError('required')">
                         Last name is required.
                     </div>
@@ -63,7 +63,7 @@
                   'is-invalid': registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched,
                   'is-valid': registerForm.get('phone')?.valid && registerForm.get('phone')?.touched
                 }" pattern="[0-9]{10}" maxlength="10" required>
-                <!-- validation -->
+                    <!-- validation -->
                     <div class="invalid-feedback" *ngIf="registerForm.get('phone')?.hasError('required')">
                         Phone number is required.
                     </div>
@@ -80,7 +80,7 @@
                 'is-invalid': registerForm.get('dob')?.invalid && registerForm.get('dob')?.touched,
                 'is-valid': registerForm.get('dob')?.valid && registerForm.get('dob')?.touched
               }">
-                  <!-- validation -->
+                    <!-- validation -->
                     <div class="invalid-feedback" *ngIf="registerForm.get('dob')?.hasError('required')">
                         Date of Birth is required.
                     </div>
@@ -100,7 +100,7 @@
                         <!-- dynamic value -->
                         <option *ngFor="let g of genderList" [value]="g">{{ g }}</option>
                     </select>
-                        <!-- validation -->
+                    <!-- validation -->
                     <div class="invalid-feedback"
                         *ngIf="registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched">
                         Please select a valid gender.
@@ -114,7 +114,7 @@
                     <input type="text" class="form-control" id="address" formControlName="address" [ngClass]="{
               'is-invalid': registerForm.get('address')?.invalid && registerForm.get('address')?.touched,
               'is-valid': registerForm.get('address')?.valid && registerForm.get('address')?.touched }" required>
-                <!-- validation -->
+                    <!-- validation -->
                     <div class="invalid-feedback">
                         Address is required.
                     </div>
@@ -128,7 +128,7 @@
               'is-invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched,
               'is-valid': registerForm.get('password')?.valid && registerForm.get('password')?.touched }">
 
-            <!-- validation -->
+                    <!-- validation -->
                     <div class="invalid-feedback" *ngIf="registerForm.get('password')?.hasError('required')">
                         Password is required.
                     </div>
@@ -141,7 +141,8 @@
                 <!-- ConfirmPassword -->
                 <div class="form-group">
                     <label for="confirmPassword">Confirm Password:</label>
-                    <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword"[ngClass]="{
+                    <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword"
+                        [ngClass]="{
                   'is-invalid': (registerForm.get('confirmPassword')?.invalid || registerForm.hasError('passwordMismatch')) && registerForm.get('confirmPassword')?.touched,
                   'is-valid': registerForm.get('confirmPassword')?.valid && !registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched }">
                     <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword')?.hasError('required')">
@@ -155,13 +156,13 @@
 
 
                 <!-- Submit Button -->
-                <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">
+                <button type="submit" class="btn btn-primary">
                     Register
                 </button>
 
                 <!-- Login Button -->
                 <button type="button" class="btn btn-primary" routerLink="/login">
-                    Logn
+                    Login
                 </button>
             </form>
         </div>
