@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
       { validators: matchPassword }
     );
   }
-  
+
   get ctrl() {
     return this.registerForm.controls;
   }
@@ -74,7 +74,9 @@ export class RegisterComponent implements OnInit {
       }
 
       // If email not taken
-      const newUser: UserDto = this.registerForm.value;
+      const newUser: UserDto = { ...this.registerForm.value,selectedstatus: 'Active',
+      };
+
       this.authService.register(newUser).subscribe({
         next: () => {
           this.toastr.success('Registration successful', 'Success');

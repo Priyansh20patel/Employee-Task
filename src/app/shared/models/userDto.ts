@@ -1,4 +1,5 @@
 export interface UserDto {
+
   id: string;
   firstName: string;
   lastName: string;
@@ -8,8 +9,8 @@ export interface UserDto {
   gender: string;
   address: string;
   dob: string;
-  username: string;
-  userData: string;
-  isEditing: boolean;
+  status: string;
+  
+
 
 }

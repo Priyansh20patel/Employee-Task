@@ -5,12 +5,13 @@
       "firstName": "Shubham",
       "lastName": "Prajapati",
       "email": "shubham@gmail.com",
-      "phone": "6928271456",
+      "phone": "0987654321",
       "dob": "2003-07-17",
       "gender": "Male",
       "address": "Canadahgjhg",
       "password": "Shubham@03",
-      "confirmPassword": "Shubham@03"
+      "confirmPassword": "Shubham@03",
+      "status": "Active"
     },
     {
       "id": "3125b1e9-ab75-3209-c2c1-a17bf1b3c746",
@@ -22,7 +23,8 @@
       "gender": "Male",
       "address": "uibpgwhriuph",
       "password": "Priyansh@03",
-      "confirmPassword": "Priyansh@03"
+      "confirmPassword": "Priyansh@03",
+      "status": "Active"
     },
     {
       "id": "50e6dbdc-e06d-7b91-cd3e-a667508cd52b",
@@ -34,7 +36,8 @@
       "gender": "Male",
       "address": "dfgvbfbfbbt",
       "password": "Deven@03",
-      "confirmPassword": "Deven@03"
+      "confirmPassword": "Deven@03",
+      "status": "Inactive"
     },
     {
       "id": "19b661ee-9d60-d3ad-122c-ebe941aeb24c",
@@ -46,7 +49,63 @@
       "gender": "Female",
       "address": "Canadahgjhg",
       "password": "Harshraj@03",
-      "confirmPassword": "Harshraj@03"
+      "confirmPassword": "Harshraj@03",
+      "status": "Inactive"
+    },
+    {
+      "id": "ae8fb7de-72b0-2a84-7a34-fe807650b611",
+      "firstName": "Paresh",
+      "lastName": "Solanki",
+      "email": "paresh@gmail.co.in",
+      "phone": "0123456789",
+      "dob": "1946-03-12",
+      "gender": "Male",
+      "address": "feuvwhiuoggiohbwig",
+      "password": "Priyansh@03",
+      "confirmPassword": "Priyansh@03",
+      "status": "Active"
+    },
+    {
+      "id": "3c03ebab-8b64-40d2-814a-e550a30e0e96",
+      "firstName": "Umitas",
+      "lastName": "Patel",
+      "email": "umtas@12gmail.com",
+      "phone": "0984027036",
+      "dob": "2003-11-20",
+      "gender": "Male",
+      "address": "ughpvbiuwyuiyrirywhhigwhpr",
+      "password": "Priyansh@03",
+      "confirmPassword": "Priyansh@03",
+      "selectedstatus": "Active",
+      "status": "Active"
+    },
+    {
+      "id": "46d23149-5cc3-4065-824c-0e13c600c901",
+      "firstName": "Shubham",
+      "lastName": "Mason",
+      "email": "shubham123@gmail.com",
+      "phone": "0123456789",
+      "dob": "2003-11-20",
+      "gender": "Male",
+      "address": "iuhgiougrwrgrht",
+      "password": "Shubham@03",
+      "confirmPassword": "Shubham@03",
+      "selectedstatus": "Active",
+      "status": "Active"
+    },
+    {
+      "id": "714dbdcd-7d7c-4130-a09a-2143dfaaa2f4",
+      "firstName": "Neddy",
+      "lastName": "Mason",
+      "email": "Priyansh32@gmail.com",
+      "phone": "6928271456",
+      "dob": "2003-12-11",
+      "gender": "Male",
+      "address": "uibpgwhriuph",
+      "password": "Priyansh@03",
+      "confirmPassword": "Priyansh@03",
+      "selectedstatus": "Active",
+      "status": "Active"
     }
   ]
 }
