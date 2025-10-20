@@ -1,229 +1,227 @@
 <app-navbar></app-navbar>
-  <!-- Card Header -->
-  <!-- <div class="card-header d-flex justify-content-between align-items-center text-white" style="background-color: #2c3e50">
+<!-- Card Header -->
+<!-- <div class="card-header d-flex justify-content-between align-items-center text-white" style="background-color: #2c3e50">
     <h3 class="mb-0">Employee Management System</h3>
     <button class="btn btn-outline-light btn-sm" (click)="logout()">
       Logout
     </button>
   </div> -->
 
-  <!-- <div class="card shadow-lg p-3 mt-3"> -->
-    <!-- Filter & Search Section -->
-    <div class="row border rounded bg-light p-3 mb-3">
-      <!-- Filter By Status -->
-      <div class="col-md-3">
-        <label for="statusFilter"><strong>Status</strong></label>
-        <select class="form-control" id="statusFilter" [(ngModel)]="selectedStatus" (ngModelChange)="updatePage()">
-          <option value="All">All</option>
-          <option value="Active">Active</option>
-          <option value="Inactive">Inactive</option>
-        </select>
-      </div>
+<!-- <div class="card shadow-lg p-3 mt-3"> -->
+<!-- Filter & Search Section -->
+<div class="row border rounded bg-light p-3 mb-3">
+  <!-- Filter By Status -->
+  <div class="col-md-3">
+    <label for="statusFilter"><strong>Status</strong></label>
+    <select class="form-control" id="statusFilter" [(ngModel)]="selectedStatus" (ngModelChange)="updatePage()">
+      <option value="All">All</option>
+      <option value="Active">Active</option>
+      <option value="Inactive">Inactive</option>
+    </select>
+  </div>
 
-      <!-- Search -->
-      <div class="col-md-3">
-        <label for="searchText"><strong>Search</strong></label>
-        <input type="text" id="searchText" class="form-control" [(ngModel)]="searchText" placeholder="type here ..." (ngModelChange)="updatePage()" />
-      </div>
-    </div>
+  <!-- Search -->
+  <div class="col-md-3">
+    <label for="searchText"><strong>Search</strong></label>
+    <input type="text" id="searchText" class="form-control" [(ngModel)]="searchText" placeholder="type here ..."
+      (ngModelChange)="updatePage()" />
+  </div>
+</div>
 
-    <!-- Table Section -->
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-striped align-middle">
-          <!-- Table Header with Icons -->
-          <thead class="table-dark">
-  <tr>
-    <th>ID</th>
-    <th (click)="sortTable(SortColumnEnum.firstName)" class="cursor-pointer">
-      <i class="fas fa-user text-info me-1"></i> First Name
-      <span *ngIf="sortColumn === 'firstName'" class="ms-1">
-        {{ sortDirection === 'asc' ? '▲' : '▼' }}
-      </span>
-    </th>
-    <th (click)="sortTable(SortColumnEnum.lastName)" class="cursor-pointer">
-      <i class="fas fa-user-tag text-warning me-1"></i> Last Name
-      <span *ngIf="sortColumn === 'lastName'" class="ms-1">
-        {{ sortDirection === 'asc' ? '▲' : '▼' }}
-      </span>
-    </th>
-    <th (click)="sortTable(SortColumnEnum.email)" class="cursor-pointer">
-      <i class="fas fa-envelope text-primary me-1"></i> Email
-      <span *ngIf="sortColumn === 'email'" class="ms-1">
-        {{ sortDirection === 'asc' ? '▲' : '▼' }}
-      </span>
-    </th>
-    <th><i class="fas fa-phone text-success me-1"></i> Phone</th>
-    <th (click)="sortTable(SortColumnEnum.dob)" class="cursor-pointer">
-      <i class="fas fa-calendar-alt text-danger me-1"></i> Date of Birth
-      <span *ngIf="sortColumn === 'dob'" class="ms-1">
-        {{ sortDirection === 'asc' ? '▲' : '▼' }}
-      </span>
-    </th>
-    <th><i class="fas fa-venus-mars text-secondary me-1"></i> Gender</th>
-    <th><i class="fas fa-toggle-on text-info me-1"></i> Status</th>
-    <th><i class="fas fa-pen text-success me-1"></i> Edit</th>
-    <th><i class="fas fa-trash-alt text-danger me-1"></i> Delete</th>
-  </tr>
-</thead>
+<!-- Table Section -->
+<div class="card-body">
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <!-- Table Header with Icons -->
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th (click)="sortTable(SortColumnEnum.firstName)" class="cursor-pointer">
+            <i class="fas fa-user text-info me-1"></i> First Name
+            <span *ngIf="sortColumn === 'firstName'" class="ms-1">
+              {{ sortDirection === 'asc' ? '▲' : '▼' }}
+            </span>
+          </th>
+          <th (click)="sortTable(SortColumnEnum.lastName)" class="cursor-pointer">
+            <i class="fas fa-user-tag text-warning me-1"></i> Last Name
+            <span *ngIf="sortColumn === 'lastName'" class="ms-1">
+              {{ sortDirection === 'asc' ? '▲' : '▼' }}
+            </span>
+          </th>
+          <th (click)="sortTable(SortColumnEnum.email)" class="cursor-pointer">
+            <i class="fas fa-envelope text-primary me-1"></i> Email
+            <span *ngIf="sortColumn === 'email'" class="ms-1">
+              {{ sortDirection === 'asc' ? '▲' : '▼' }}
+            </span>
+          </th>
+          <th><i class="fas fa-phone text-success me-1"></i> Phone</th>
+          <th (click)="sortTable(SortColumnEnum.dob)" class="cursor-pointer">
+            <i class="fas fa-calendar-alt text-danger me-1"></i> Date of Birth
+            <span *ngIf="sortColumn === 'dob'" class="ms-1">
+              {{ sortDirection === 'asc' ? '▲' : '▼' }}
+            </span>
+          </th>
+          <th><i class="fas fa-venus-mars text-secondary me-1"></i> Gender</th>
+          <th><i class="fas fa-toggle-on text-info me-1"></i> Status</th>
+          <th><i class="fas fa-pen text-success me-1"></i> Edit</th>
+          <th><i class="fas fa-trash-alt text-danger me-1"></i> Delete</th>
+        </tr>
+      </thead>
 
 
-          <!-- Table Body -->
-          <tbody>
-            <tr *ngFor="let user of paginatedUsers; let i = index">
-              <th>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</th>
-              <td>{{ user.firstName }}</td>
-              <td>{{ user.lastName }}</td>
-              <td>{{ user.email }}</td>
-              <td>{{ user.phone }}</td>
-              <td>{{ user.dob | date : "dd-MM-yyyy" }}</td>
-              <td>{{ user.gender }}</td>
-              <td>
-                <span class="badge" [ngClass]="{
+      <!-- Table Body -->
+      <tbody>
+        <tr *ngFor="let user of paginatedUsers; let i = index">
+          <th>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</th>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.dob | date : "dd-MM-yyyy" }}</td>
+          <td>{{ user.gender }}</td>
+          <td>
+            <span class="badge" [ngClass]="{
                     'bg-success': user.status === 'Active',
                     'bg-danger': user.status === 'Inactive'
                   }">
-                  {{ user.status }}
-                </span>
-              </td>
-              <td>
-                <button class="btn btn-info btn-sm" (click)="editUser(user)">
-                  <i class="fas fa-edit"></i> <!-- Font Awesome edit icon -->
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">
-                  <i class="fas fa-trash-alt"></i> <!-- Font Awesome trash icon -->
-                </button>
-              </td>
+              {{ user.status }}
+            </span>
+          </td>
+          <td>
+            <button class="btn btn-info btn-sm" (click)="editUser(user)">
+              <i class="fas fa-edit"></i> <!-- Font Awesome edit icon -->
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">
+              <i class="fas fa-trash-alt"></i> <!-- Font Awesome trash icon -->
+            </button>
+          </td>
 
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-    <!-- Modal -->
-    <div *ngIf="selectedUser">
-      <div class="modal fade show d-block" id="userEditModal" aria-hidden="true" style="z-index: 1050; background: rgba(0, 0, 0, 0.5)">
-        <div class="modal-dialog modal-dialog-scrollable">
-          <div class="modal-content" style="min-height: 80vh; border-radius: 12px; padding-top: 15px">
-            <div class="modal-header">
-              <h5 class="modal-title">Edit User</h5>
-              <button type="button" class="btn-close" aria-label="Close" (click)="cancelEdit()"></button>
-            </div>
-            <div class="modal-body">
-              <form [formGroup]="userEditForm">
-                <div class="row">
-                  <!-- First Name -->
-                  <div class="col-md-12 mb-2">
-                    <label>First Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" formControlName="firstName" [ngClass]="{
+<!-- Modal -->
+<div *ngIf="selectedUser">
+  <div class="modal fade show d-block" id="userEditModal" aria-hidden="true"
+    style="z-index: 1050; background: rgba(0, 0, 0, 0.5)">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content" style="min-height: 80vh; border-radius: 12px; padding-top: 15px">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit User</h5>
+          <button type="button" class="btn-close" aria-label="Close" (click)="cancelEdit()"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="userEditForm">
+            <div class="row">
+              <!-- First Name -->
+              <div class="col-md-12 mb-2">
+                <label>First Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" formControlName="firstName" [ngClass]="{
                         'is-invalid': formControls['firstName'].invalid && formControls['firstName'].touched
                       }" />
-                    <div *ngIf="formControls['firstName'].touched && formControls['firstName'].invalid" class="text-danger">
-                      <span *ngIf="formControls['firstName'].hasError('required')">First name is required.</span>
-                      <span *ngIf="formControls['firstName'].hasError('minlength')">Min 5 characters.</span>
-                    </div>
-                  </div>
+                <div *ngIf="formControls['firstName'].touched && formControls['firstName'].invalid" class="text-danger">
+                  <span *ngIf="formControls['firstName'].hasError('required')">First name is required.</span>
+                  <span *ngIf="formControls['firstName'].hasError('minlength')">Min 5 characters.</span>
+                </div>
+              </div>
 
-                  <!-- Last Name -->
-                  <div class="col-md-12 mb-2">
-                    <label>Last Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" formControlName="lastName" [ngClass]="{
+              <!-- Last Name -->
+              <div class="col-md-12 mb-2">
+                <label>Last Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" formControlName="lastName" [ngClass]="{
                         'is-invalid': formControls['lastName'].invalid && formControls['lastName'].touched
                       }" />
-                    <div *ngIf="formControls['lastName'].touched && formControls['lastName'].invalid" class="text-danger">
-                      <span *ngIf="formControls['lastName'].hasError('required')">Last name is required.</span>
-                      <span *ngIf="formControls['lastName'].hasError('minlength')">Min 5 characters.</span>
-                    </div>
-                  </div>
+                <div *ngIf="formControls['lastName'].touched && formControls['lastName'].invalid" class="text-danger">
+                  <span *ngIf="formControls['lastName'].hasError('required')">Last name is required.</span>
+                  <span *ngIf="formControls['lastName'].hasError('minlength')">Min 5 characters.</span>
+                </div>
+              </div>
 
-                  <!-- Email -->
-                  <div class="col-md-12 mb-2">
-                    <label>Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" formControlName="email" [ngClass]="{
+              <!-- Email -->
+              <div class="col-md-12 mb-2">
+                <label>Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" formControlName="email" [ngClass]="{
                         'is-invalid': formControls['email'].invalid && formControls['email'].touched
                       }" />
-                    <div *ngIf="formControls['email'].touched && formControls['email'].invalid" class="text-danger">
-                      <span *ngIf="formControls['email'].hasError('required')">Email is required.</span>
-                      <span *ngIf="formControls['email'].hasError('pattern')">Invalid email format.</span>
-                    </div>
-                  </div>
+                <div *ngIf="formControls['email'].touched && formControls['email'].invalid" class="text-danger">
+                  <span *ngIf="formControls['email'].hasError('required')">Email is required.</span>
+                  <span *ngIf="formControls['email'].hasError('pattern')">Invalid email format.</span>
+                </div>
+              </div>
 
-                  <!-- Phone -->
-                  <div class="col-md-12 mb-2">
-                    <label>Phone <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" maxlength="10" formControlName="phone" [ngClass]="{
+              <!-- Phone -->
+              <div class="col-md-12 mb-2">
+                <label>Phone <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" maxlength="10" formControlName="phone" [ngClass]="{
                         'is-invalid': formControls['phone'].invalid && formControls['phone'].touched
                       }" />
-                    <div *ngIf="formControls['phone'].touched && formControls['phone'].invalid" class="text-danger">
-                      <span *ngIf="formControls['phone'].hasError('required')">Phone is required.</span>
-                      <span *ngIf="formControls['phone'].hasError('pattern')">Invalid phone number.</span>
-                    </div>
-                  </div>
+                <div *ngIf="formControls['phone'].touched && formControls['phone'].invalid" class="text-danger">
+                  <span *ngIf="formControls['phone'].hasError('required')">Phone is required.</span>
+                  <span *ngIf="formControls['phone'].hasError('pattern')">Invalid phone number.</span>
+                </div>
+              </div>
 
-                  <!-- Gender -->
-                  <div class="col-md-12 mb-2">
-                    <label>Gender <span class="text-danger">*</span></label>
-                    <select class="form-control" formControlName="gender" [ngClass]="{
+              <!-- Gender -->
+              <div class="col-md-12 mb-2">
+                <label>Gender <span class="text-danger">*</span></label>
+                <select class="form-control" formControlName="gender" [ngClass]="{
                         'is-invalid': formControls['gender'].invalid && formControls['gender'].touched
                       }">
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                      <option value="Other">Other</option>
-                    </select>
-                    <div *ngIf="formControls['gender'].touched && formControls['gender'].invalid" class="text-danger">
-                      Gender is required.
-                    </div>
-                  </div>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div *ngIf="formControls['gender'].touched && formControls['gender'].invalid" class="text-danger">
+                  Gender is required.
+                </div>
+              </div>
 
-                  <!-- DOB -->
-                  <div class="col-md-12 mb-2">
-                    <label>Date of Birth <span class="text-danger">*</span></label>
-                    <input type="date" class="form-control" formControlName="dob" [ngClass]="{
+              <!-- DOB -->
+              <div class="col-md-12 mb-2">
+                <label>Date of Birth <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" formControlName="dob" [ngClass]="{
                         'is-invalid': formControls['dob'].invalid && formControls['dob'].touched
                       }" />
-                    <div *ngIf="formControls['dob'].touched && formControls['dob'].invalid" class="text-danger">
-                      <span *ngIf="formControls['dob'].hasError('required')">Date of Birth is required.</span>
-                      <span *ngIf="formControls['dob'].hasError('ageInvalid')">Must be at least 18.</span>
-                    </div>
-                  </div>
+                <div *ngIf="formControls['dob'].touched && formControls['dob'].invalid" class="text-danger">
+                  <span *ngIf="formControls['dob'].hasError('required')">Date of Birth is required.</span>
+                  <span *ngIf="formControls['dob'].hasError('ageInvalid')">Must be at least 18.</span>
+                </div>
+              </div>
 
-                  <!-- Status -->
-                  <div class="col-md-12 mb-2">
-                    <label>Status <span class="text-danger">*</span></label>
-                    <select class="form-control" formControlName="status" [ngClass]="{
+              <!-- Status -->
+              <div class="col-md-12 mb-2">
+                <label>Status <span class="text-danger">*</span></label>
+                <select class="form-control" formControlName="status" [ngClass]="{
                         'is-invalid': formControls['status'].invalid && formControls['status'].touched
                       }">
-                      <option value="Active">Active</option>
-                      <option value="Inactive">Inactive</option>
-                    </select>
-                    <div *ngIf="formControls['status'].touched && formControls['status'].invalid" class="text-danger">
-                      Status is required.
-                    </div>
-                  </div>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+                <div *ngIf="formControls['status'].touched && formControls['status'].invalid" class="text-danger">
+                  Status is required.
                 </div>
-              </form>
+              </div>
             </div>
+          </form>
+        </div>
 
-            <!-- Modal Footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-success" (click)="saveUser()">Save</button>
-              <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
-            </div>
-          </div>
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" (click)="saveUser()">Save</button>
+          <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Pagination -->
-    <div class="d-flex justify-content-center mt-3">
-      <app-pagination
-        [currentPage]="currentPage"
-        [itemsPerPage]="itemsPerPage"
-        [totalItems]="totalUsers"
-        (pageChange)="changePage($event)">
-      </app-pagination>
-    </div>
-
+<!-- Pagination -->
+<div class="d-flex justify-content-center mt-3">
+  <app-pagination [currentPage]="currentPage" [itemsPerPage]="itemsPerPage" [totalItems]="totalUsers"
+    (pageChange)="changePage($event)">
+  </app-pagination>
+</div>
